@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .contact-list {
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      background: #f9f9f9;
+      padding: 12px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-details {
+      font-size: 14px;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      padding: 6px 12px;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📒 Contact Manager</h1>
+  <div class="container">
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <button type="submit">Add Contact</button>
+    </form>
+
+    <div class="contact-list" id="contactList">
+      <!-- Contacts will appear here -->
+    </div>
+  </div>
+
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    const contactList = document.getElementById('contactList');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (name && phone && email) {
+        const contactItem = document.createElement('div');
+        contactItem.className = 'contact-item';
+
+        contactItem.innerHTML = `
+          <div class="contact-details">
+            <strong>${name}</strong><br>
+            📞 ${phone}<br>
+            📧 ${email}
+          </div>
+          <button class="delete-btn">Delete</button>
+        `;
+
+        contactItem.querySelector('.delete-btn').addEventListener('click', function () {
+          contactItem.remove();
+        });
+
+        contactList.appendChild(contactItem);
+
+        contactForm.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
