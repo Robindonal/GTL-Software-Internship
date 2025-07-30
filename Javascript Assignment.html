@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Assignment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input, button {
+      padding: 10px;
+      width: 100%;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>JavaScript Assignment</h2>
+    <p><strong>Task:</strong> Enter a number to calculate its square using JavaScript.</p>
+
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button onclick="calculateSquare()">Calculate Square</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateSquare() {
+      const num = document.getElementById('numberInput').value;
+      const resultArea = document.getElementById('result');
+
+      if (num === "") {
+        resultArea.innerHTML = "Please enter a number.";
+        resultArea.style.color = "red";
+        return;
+      }
+
+      const square = num * num;
+      resultArea.innerHTML = `The square of ${num} is ${square}.`;
+      resultArea.style.color = "green";
+    }
+  </script>
+
+</body>
+</html>
