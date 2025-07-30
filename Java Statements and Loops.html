@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Java Statements & Loops (Simulated with JS)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef2f3;
+      padding: 40px;
+    }
+
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px 5px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .output {
+      margin-top: 20px;
+      background: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      white-space: pre-line;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Java Statements & Loops - Simulation in JavaScript</h2>
+
+    <button onclick="ifElseExample()">if-else Statement</button>
+    <button onclick="forLoopExample()">for Loop</button>
+    <button onclick="whileLoopExample()">while Loop</button>
+    <button onclick="switchCaseExample()">switch-case Statement</button>
+
+    <div class="output" id="outputBox">Click a button to run an example.</div>
+  </div>
+
+  <script>
+    function ifElseExample() {
+      let age = 20;
+      let output = "";
+      if (age >= 18) {
+        output = "if-else Example:\nYou are eligible to vote.";
+      } else {
+        output = "if-else Example:\nYou are NOT eligible to vote.";
+      }
+      document.getElementById("outputBox").innerText = output;
+    }
+
+    function forLoopExample() {
+      let output = "for Loop Example:\nNumbers from 1 to 5:\n";
+      for (let i = 1; i <= 5; i++) {
+        output += i + " ";
+      }
+      document.getElementById("outputBox").innerText = output;
+    }
+
+    function whileLoopExample() {
+      let output = "while Loop Example:\nEven numbers up to 10:\n";
+      let i = 2;
+      while (i <= 10) {
+        output += i + " ";
+        i += 2;
+      }
+      document.getElementById("outputBox").innerText = output;
+    }
+
+    function switchCaseExample() {
+      let day = 3;
+      let dayName;
+      switch (day) {
+        case 1: dayName = "Monday"; break;
+        case 2: dayName = "Tuesday"; break;
+        case 3: dayName = "Wednesday"; break;
+        case 4: dayName = "Thursday"; break;
+        case 5: dayName = "Friday"; break;
+        default: dayName = "Weekend";
+      }
+      document.getElementById("outputBox").innerText = `switch-case Example:\nDay ${day} is ${dayName}`;
+    }
+  </script>
+
+</body>
+</html>
