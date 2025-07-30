@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arithmetic Operations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .calculator {
+      background: white;
+      padding: 30px;
+      margin: auto;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .buttons button:hover {
+      opacity: 0.8;
+    }
+
+    .add { background-color: #28a745; color: white; }
+    .sub { background-color: #007bff; color: white; }
+    .mul { background-color: #ffc107; color: black; }
+    .div { background-color: #dc3545; color: white; }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <h2>Arithmetic Operations</h2>
+    <input type="number" id="num1" placeholder="Enter first number" required />
+    <input type="number" id="num2" placeholder="Enter second number" required />
+
+    <div class="buttons">
+      <button class="add" onclick="calculate('+')">Add (+)</button>
+      <button class="sub" onclick="calculate('-')">Subtract (-)</button>
+      <button class="mul" onclick="calculate('*')">Multiply (×)</button>
+      <button class="div" onclick="calculate('/')">Divide (÷)</button>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculate(operator) {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      const resultElement = document.getElementById('result');
+
+      if (isNaN(num1) || isNaN(num2)) {
+        resultElement.innerHTML = "Please enter both numbers.";
+        return;
+      }
+
+      let result;
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          result = num2 !== 0 ? (num1 / num2).toFixed(2) : "Cannot divide by zero!";
+          break;
+        default:
+          result = "Invalid operation.";
+      }
+
+      resultElement.innerHTML = `Result: ${result}`;
+    }
+  </script>
+
+</body>
+</html>
